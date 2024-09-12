@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Анкета пользователя</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Анкета пользователя</h1>
+        <form id="userForm">
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="city">Город:</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="hobby">Хобби:</label>
+                <input type="text" class="form-control" id="hobby" name="hobby" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Возраст:</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+
+        <div id="result" class="mt-4" style="display: none;">
+            <h2>Введенные данные:</h2>
+            <p><strong>Имя:</strong> <span id="resultName"></span></p>
+            <p><strong>Город:</strong> <span id="resultCity"></span></p>
+            <p><strong>Хобби:</strong> <span id="resultHobby"></span></p>
+            <p><strong>Возраст:</strong> <span id="resultAge"></span></p>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы
+
+            // Получаем значения из формы
+            const name = document.getElementById('name').value;
+            const city = document.getElementById('city').value;
+            const hobby = document.getElementById('hobby').value;
+            const age = document.getElementById('age').value;
+
+            // Отображаем введенные данные
+            document.getElementById('resultName').textContent = name;
+            document.getElementById('resultCity').textContent = city;
+            document.getElementById('resultHobby').textContent = hobby;
+            document.getElementById('resultAge').textContent = age;
+
+            // Показываем результат
+            document.getElementById('result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
